@@ -13,13 +13,12 @@
 		E364E08A237AAA4A0067B07A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E364E088237AAA4A0067B07A /* Main.storyboard */; };
 		E364E08C237AAA4E0067B07A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E364E08B237AAA4E0067B07A /* Assets.xcassets */; };
 		E364E08F237AAA4E0067B07A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E364E08D237AAA4E0067B07A /* LaunchScreen.storyboard */; };
-		E3A48AAB237AB194003BF98C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48AAA237AB194003BF98C /* Utilities.swift */; };
+		E399DDC3237C979800A42F3A /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E399DDC2237C979800A42F3A /* ViewControllerExtension.swift */; };
 		E3A48AAD237AB9BF003BF98C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48AAC237AB9BF003BF98C /* Service.swift */; };
 		E3A48AAF237AB9D8003BF98C /* QuestionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48AAE237AB9D8003BF98C /* QuestionResult.swift */; };
 		E3A48AD8237B259C003BF98C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48AD7237B259C003BF98C /* IntroViewController.swift */; };
 		E3A48ADB237B3405003BF98C /* Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3A48AD9237B3405003BF98C /* Player.xcdatamodeld */; };
 		E3A48ADE237B351F003BF98C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48ADD237B351F003BF98C /* CoreDataManager.swift */; };
-		E3A48AE0237B474E003BF98C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A48ADF237B474E003BF98C /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +30,12 @@
 		E364E08B237AAA4E0067B07A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E364E08E237AAA4E0067B07A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E364E090237AAA4E0067B07A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3A48AAA237AB194003BF98C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E399DDC2237C979800A42F3A /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		E3A48AAC237AB9BF003BF98C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E3A48AAE237AB9D8003BF98C /* QuestionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResult.swift; sourceTree = "<group>"; };
 		E3A48AD7237B259C003BF98C /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		E3A48ADA237B3405003BF98C /* Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Player.xcdatamodel; sourceTree = "<group>"; };
 		E3A48ADD237B351F003BF98C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		E3A48ADF237B474E003BF98C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,26 +68,34 @@
 		E364E081237AAA4A0067B07A /* trivia for two */ = {
 			isa = PBXGroup;
 			children = (
+				E399DDC1237C978300A42F3A /* Extensions */,
 				E3A48ADC237B3410003BF98C /* Model */,
 				E3A48AE1237B482C003BF98C /* Controllers */,
 				E364E082237AAA4A0067B07A /* AppDelegate.swift */,
+				E3A48AAC237AB9BF003BF98C /* Service.swift */,
 				E364E084237AAA4A0067B07A /* SceneDelegate.swift */,
 				E364E088237AAA4A0067B07A /* Main.storyboard */,
 				E364E08D237AAA4E0067B07A /* LaunchScreen.storyboard */,
-				E3A48AAC237AB9BF003BF98C /* Service.swift */,
-				E3A48AAA237AB194003BF98C /* Utilities.swift */,
 				E364E08B237AAA4E0067B07A /* Assets.xcassets */,
 				E364E090237AAA4E0067B07A /* Info.plist */,
 			);
 			path = "trivia for two";
 			sourceTree = "<group>";
 		};
+		E399DDC1237C978300A42F3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E399DDC2237C979800A42F3A /* ViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E3A48ADC237B3410003BF98C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3A48AD9237B3405003BF98C /* Player.xcdatamodeld */,
 				E3A48AAE237AB9D8003BF98C /* QuestionResult.swift */,
 				E3A48ADD237B351F003BF98C /* CoreDataManager.swift */,
+				E3A48AD9237B3405003BF98C /* Player.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				E364E086237AAA4A0067B07A /* ViewController.swift */,
-				E3A48ADF237B474E003BF98C /* SecondViewController.swift */,
 				E3A48AD7237B259C003BF98C /* IntroViewController.swift */,
 			);
 			path = Controllers;
@@ -180,10 +185,9 @@
 				E364E083237AAA4A0067B07A /* AppDelegate.swift in Sources */,
 				E3A48AD8237B259C003BF98C /* IntroViewController.swift in Sources */,
 				E3A48AAD237AB9BF003BF98C /* Service.swift in Sources */,
-				E3A48AAB237AB194003BF98C /* Utilities.swift in Sources */,
 				E3A48ADE237B351F003BF98C /* CoreDataManager.swift in Sources */,
 				E3A48AAF237AB9D8003BF98C /* QuestionResult.swift in Sources */,
-				E3A48AE0237B474E003BF98C /* SecondViewController.swift in Sources */,
+				E399DDC3237C979800A42F3A /* ViewControllerExtension.swift in Sources */,
 				E364E085237AAA4A0067B07A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

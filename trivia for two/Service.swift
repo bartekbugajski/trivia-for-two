@@ -12,7 +12,7 @@ class Service {
     static let shared = Service() //singleton
     var questionResults = [Question]()
     func fetchQuestions (handler: @escaping (Swift.Result<QuestionResult, Error>) -> Void) {
-        let urlString = "https://opentdb.com/api.php?amount=12&category=9&difficulty=easy&type=multiple"
+        let urlString = "https://opentdb.com/api.php?amount=20&category=11&type=multiple"
         guard let url = URL(string: urlString) else {
             handler(.failure(NetworkError.invalidURL))
             return
@@ -23,25 +23,18 @@ class Service {
                 handler(.failure(jsonErr))
                 return
             }
-            
             guard let data = data else {
                 handler(.failure(NetworkError.invalidResponse))
                 return
-                
             }
-            
+
             do {
                 let questionResult = try JSONDecoder().decode(QuestionResult.self, from: data)
-                
                 handler(.success(questionResult))
-                
-                
             } catch let error {
                 handler(.failure(error))
             }
-            
         }.resume()
-        
     }
 }
 

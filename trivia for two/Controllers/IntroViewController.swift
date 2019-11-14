@@ -12,9 +12,12 @@ import CoreData
 
 class IntroViewController: UIViewController {
     
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rulesLabel: UILabel!
     @IBOutlet weak var playerOneName: UITextField!
     @IBOutlet weak var playerTwoName: UITextField!
+    @IBOutlet weak var startGameButton: UIButton!
+    
     @IBAction func startButton(_ sender: Any) {
         createPlayer()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -23,37 +26,59 @@ class IntroViewController: UIViewController {
     }
     
      var players = [Player]()
-        
-        var player: Player? {
+     var player: Player? {
             didSet {
-                
                 playerOneName.text = player?.nickname
                 playerTwoName.text = player?.nicknameTwo
-                
+
             }
         }
     
-        
-        
         override func viewDidLoad() {
             super.viewDidLoad()
-           
+            self.navigationItem.title = "Movies"
+            
+            titleLabel.alpha = 0
+            rulesLabel.alpha = 0
+            playerOneName.alpha = 0
+            playerTwoName.alpha = 0
+            startGameButton.alpha = 0
+            
+            showWelcome()
+            showManual()
+       
             
         }
+    
+ 
+        func showWelcome() {
+        UIView.animate(withDuration: 1.5, animations: {
+            self.titleLabel.alpha = 1
+            self.rulesLabel.alpha = 1
+        }, completion: { (true) in
+            self.showManual()
+        }
+        )
+    }
+    
+        func showManual() {
+        UIView.animate(withDuration: 1.5, animations: {
+            self.playerOneName.alpha = 1
+            self.playerTwoName.alpha = 1
+            self.startGameButton.alpha = 1
+        })
+    }
         
+  
         func didAddPlayer(player: Player) {
-              players.append(player)
-    // let collectionViewIndexPath = IndexPath(item: newIdeas.count - 1, section: 0)
-    // collectionView.insertItems(at: [collectionViewIndexPath])
+            players.append(player)
             view.reloadInputViews()
           }
     
-       
-          
-        
+    
        func createPlayer() {
-               let context = CoreDataManager.shared.persistentContainer.viewContext
-               let player = NSEntityDescription.insertNewObject(forEntityName: "Player", into: context)
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            let player = NSEntityDescription.insertNewObject(forEntityName: "Player", into: context)
             player.setValue(playerOneName.text, forKey: "nickname")
             player.setValue(playerTwoName.text, forKey: "nicknameTwo")
                
