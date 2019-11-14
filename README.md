@@ -1,7 +1,5 @@
 # Trivia For Two
-# Project Title
-
-This Trivia game consists of movie questions for 2 players. 
+The game consists of movie questions for 2 players. 
 Each player gets to answer 10 questions and after the round finishes the screen re-loads.
 
 ### Prerequisites
