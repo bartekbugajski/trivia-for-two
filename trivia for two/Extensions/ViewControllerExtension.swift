@@ -53,12 +53,19 @@ extension ViewController {
                  item?.isEnabled = false
              }
          }
+    
+
      
      func alignButtons() {
              btnA.titleLabel?.textAlignment = NSTextAlignment.center
              btnB.titleLabel?.textAlignment = NSTextAlignment.center
              btnC.titleLabel?.textAlignment = NSTextAlignment.center
              btnD.titleLabel?.textAlignment = NSTextAlignment.center
+        
+            btnA.titleLabel?.numberOfLines = 3
+            btnB.titleLabel?.numberOfLines = 3
+            btnC.titleLabel?.numberOfLines = 3
+            btnD.titleLabel?.numberOfLines = 3
      }
      
      func updateUI() {
@@ -128,21 +135,39 @@ extension ViewController {
                         if self.questionNumber >= 10 {
                             self.playerName.layer.backgroundColor = UIColor.clear.cgColor
                             self.playerName.layer.cornerRadius = 15
-                            self.playerTwoName.layer.backgroundColor = UIColor.green.cgColor
+                            self.playerTwoName.layer.backgroundColor = UIColor.pink.cgColor
                             self.playerTwoName.layer.cornerRadius = 15
                                             }
                         if self.questionNumber >= 20 {
                             print("GAME OVER!")
-                let alert = UIAlertController(title: "Nice job!", message: "Time for the second player!", preferredStyle: .alert)
-                let restartAction = UIAlertAction(title: "Let's go!", style: .default, handler: {action in self.updateUI()})
-                            alert.addAction(restartAction)
-                            self.present(alert, animated: true, completion: nil)
+                            self.gameOverAlert()
                         }
                      }
                    
                  }
              }
          }
+    
+    func restartQuizAlert() {
+     let alert = UIAlertController(title: "Nice job!", message: "Time for the second player!", preferredStyle: .alert)
+     let restartAction = UIAlertAction(title: "Let's go!", style: .default, handler: {action in self.reloadView()})
+        alert.addAction(restartAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func gameOverAlert() {
+        let alert = UIAlertController(title: "Game over!", message: "Let's go again!", preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Ready", style: .default, handler: {action in self.startOver()})
+           alert.addAction(restartAction)
+           present(alert, animated: true, completion: nil)
+    }
+    
+    func startOver() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+               let introVC = storyboard.instantiateViewController(withIdentifier: "intro") as! IntroViewController
+               self.present(introVC, animated: true, completion: nil)
+    }
+
 }
 
 extension UIColor {
@@ -154,6 +179,7 @@ extension UIColor {
     static let orange = UIColor(red: 237/255, green: 150/255, blue: 54/255, alpha: 1)
     static let backgroundColor = UIColor(red: 255/255, green: 224/244, blue: 204/255, alpha: 2)
     static let tempFontColor = UIColor(red: 196/255, green: 184/255, blue: 166/255, alpha: 1)
+    static let greenColor = UIColor(red: 115/255, green: 237/255, blue: 110/255, alpha: 1)
     
 }
 

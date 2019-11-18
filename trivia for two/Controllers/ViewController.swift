@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         fetchQuestions()
         alignButtons()
         alphaZero()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +55,7 @@ class ViewController: UIViewController {
             self.fetchPlayers()
             self.playerName.alpha = 1
             self.playerTwoName.alpha = 1
-            self.playerName.layer.backgroundColor = UIColor.green.cgColor
+            self.playerName.layer.backgroundColor = UIColor.borderPurple.cgColor
             self.playerName.layer.cornerRadius = 15
             self.playerTwoName.layer.cornerRadius = 15
         }) { (true) in
@@ -86,12 +87,6 @@ class ViewController: UIViewController {
          updateUI()
         }
     
-    func restartQuizAlert() {
-     let alert = UIAlertController(title: "Nice job!", message: "Time for the second player!", preferredStyle: .alert)
-     let restartAction = UIAlertAction(title: "Let's go!", style: .default, handler: {action in self.updateUI()})
-        alert.addAction(restartAction)
-        present(alert, animated: true, completion: nil)
-    }
 
     
     private func fetchPlayers() {
