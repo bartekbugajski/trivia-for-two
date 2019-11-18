@@ -69,30 +69,30 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
+        questionNumber += 1
         if sender.tag == 1 {
-                //sender.backgroundColor = .green
-                score += 1
-            questionNumber += 1
-                assignAnswers()
-                updateUI()
-            if self.questionNumber >= 10 {
-                playerName.layer.backgroundColor = UIColor.clear.cgColor
-                playerName.layer.cornerRadius = 15
-                playerTwoName.layer.backgroundColor = UIColor.green.cgColor
-                playerTwoName.layer.cornerRadius = 15
-                score -= 1
-                scoreTwo += 1
+            print("Correct Answer")
+            if questionNumber <= 10 {
+               score += 1
+            } else if questionNumber >= 10 {
+               scoreTwo += 1
             }
+            assignAnswers()
+
             } else {
-            if self.questionNumber >= 20 {
-                reloadView()
-                   }
-                print("player 1 finished")
-               self.questionNumber += 1
-                //sender.backgroundColor = .red
-                assignAnswers()
+            print("Incorrect answer!")
+            assignAnswers()
             }
+         updateUI()
         }
+    
+    func restartQuizAlert() {
+     let alert = UIAlertController(title: "Nice job!", message: "Time for the second player!", preferredStyle: .alert)
+     let restartAction = UIAlertAction(title: "Let's go!", style: .default, handler: {action in self.updateUI()})
+        alert.addAction(restartAction)
+        present(alert, animated: true, completion: nil)
+    }
+
     
     private func fetchPlayers() {
               // initialization of Core Data stack
@@ -103,13 +103,13 @@ class ViewController: UIViewController {
               players.forEach({ (player) in
                 let nicknameOneIs = player.value(forKey: "nickname") as? String
                 let nicknameTwoIs = player.value(forKey: "nicknameTwo") as? String
-                playerName.text = nicknameOneIs
-                playerTwoName.text = nicknameTwoIs
+                 playerName.text = nicknameOneIs
+                 playerTwoName.text = nicknameTwoIs
     
                 print(player.nickname ?? "")
                 print(player.nicknameTwo ?? "")
               })
-              self.players = players
+                 self.players = players
               } catch let fetchErr {
                   print("Failed to save companies.", fetchErr)
               }

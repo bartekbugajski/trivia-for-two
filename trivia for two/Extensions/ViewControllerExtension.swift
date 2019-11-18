@@ -125,8 +125,21 @@ extension ViewController {
                          if answers[2].isCorrect { self.btnC.tag = 1 }
                          self.btnD.setTitle(answers[3].title, for: .normal)
                          if answers[3].isCorrect { self.btnD.tag = 1 }
-                         
+                        if self.questionNumber >= 10 {
+                            self.playerName.layer.backgroundColor = UIColor.clear.cgColor
+                            self.playerName.layer.cornerRadius = 15
+                            self.playerTwoName.layer.backgroundColor = UIColor.green.cgColor
+                            self.playerTwoName.layer.cornerRadius = 15
+                                            }
+                        if self.questionNumber >= 20 {
+                            print("GAME OVER!")
+                let alert = UIAlertController(title: "Nice job!", message: "Time for the second player!", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Let's go!", style: .default, handler: {action in self.updateUI()})
+                            alert.addAction(restartAction)
+                            self.present(alert, animated: true, completion: nil)
+                        }
                      }
+                   
                  }
              }
          }
