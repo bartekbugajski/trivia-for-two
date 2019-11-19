@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             self.fetchPlayers()
             self.playerName.alpha = 1
             self.playerTwoName.alpha = 1
-            self.playerName.layer.backgroundColor = UIColor.greenColor.cgColor
+            self.playerName.layer.backgroundColor = UIColor.yellowColor.cgColor
             self.playerName.layer.cornerRadius = 15
             self.playerTwoName.layer.cornerRadius = 15
         }) { (true) in
@@ -98,8 +98,8 @@ class ViewController: UIViewController {
               players.forEach({ (player) in
                 let nicknameOneIs = player.value(forKey: "nickname") as? String
                 let nicknameTwoIs = player.value(forKey: "nicknameTwo") as? String
-                 playerName.text = nicknameOneIs
-                 playerTwoName.text = nicknameTwoIs
+                playerName.text = nicknameOneIs
+                playerTwoName.text = nicknameTwoIs
     
                 print(player.nickname ?? "")
                 print(player.nicknameTwo ?? "")

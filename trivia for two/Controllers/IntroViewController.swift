@@ -18,8 +18,9 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var playerTwoName: UITextField!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var triviaImage: UIImageView!
-    @IBOutlet weak var entertainmentLabel: UILabel!
     @IBOutlet weak var poweredBy: UILabel!
+    @IBOutlet weak var popcorn: UIImageView!
+    @IBOutlet weak var quizLabel: UILabel!
     
     @IBAction func startButton(_ sender: Any) {
         createPlayer()
@@ -41,14 +42,16 @@ class IntroViewController: UIViewController {
             super.viewDidLoad()
             self.navigationItem.title = "trivia for two"
             
+            
             titleLabel.alpha = 0
             rulesLabel.alpha = 0
             playerOneName.alpha = 0
             playerTwoName.alpha = 0
             startGameButton.alpha = 0
             triviaImage.alpha = 0
-            entertainmentLabel.alpha = 0
+            popcorn.alpha = 0
             poweredBy.alpha = 0
+            quizLabel.alpha = 0
             showWelcome()
             showManual()
        
@@ -58,11 +61,9 @@ class IntroViewController: UIViewController {
  
         func showWelcome() {
         UIView.animate(withDuration: 1.5, animations: {
-            self.entertainmentLabel.alpha = 1
+            self.popcorn.alpha = 1
             self.titleLabel.alpha = 1
-            self.rulesLabel.alpha = 1
-            self.poweredBy.alpha = 1
-            self.triviaImage.alpha = 1
+            self.quizLabel.alpha = 1
         }, completion: { (true) in
             self.showManual()
         }
@@ -74,6 +75,9 @@ class IntroViewController: UIViewController {
             self.playerOneName.alpha = 1
             self.playerTwoName.alpha = 1
             self.startGameButton.alpha = 1
+            self.rulesLabel.alpha = 1
+            self.poweredBy.alpha = 1
+            self.triviaImage.alpha = 1
         })
     }
         
@@ -99,6 +103,22 @@ class IntroViewController: UIViewController {
                    print("Failed to save company.", saveErr)
                }
            }
+    
+        func hideKeyboard() {
+            let pull: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            //tap.cancelsTouchesInView = false
+            pull.direction = .down
+            view.addGestureRecognizer(pull)
+            
+        }
+    
+    @objc func dismissKeyboard() {
+        playerOneName.endEditing(true)
+        playerTwoName.endEditing(true)
+        playerOneName.resignFirstResponder()
+        playerTwoName.resignFirstResponder()
+    }
+    
     }
     
 
