@@ -135,7 +135,7 @@ extension ViewController {
                         if self.questionNumber >= 10 {
                             self.playerName.layer.backgroundColor = UIColor.clear.cgColor
                             self.playerName.layer.cornerRadius = 15
-                            self.playerTwoName.layer.backgroundColor = UIColor.greenColor.cgColor
+                            self.playerTwoName.layer.backgroundColor = UIColor.yellowColor.cgColor
                             self.playerTwoName.layer.cornerRadius = 15
                                             }
                         if self.questionNumber >= 20 {
