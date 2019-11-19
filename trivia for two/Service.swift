@@ -12,7 +12,7 @@ class Service {
     static let shared = Service() //singleton
     var questionResults = [Question]()
     func fetchQuestions (handler: @escaping (Swift.Result<QuestionResult, Error>) -> Void) {
-        let urlString = "https://opentdb.com/api.php?amount=30&category=11&difficulty=medium&type=multiple"
+        let urlString = "https://opentdb.com/api.php?amount=35&category=11&type=multiple"
         guard let url = URL(string: urlString) else {
             handler(.failure(NetworkError.invalidURL))
             return

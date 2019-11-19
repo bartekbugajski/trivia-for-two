@@ -17,6 +17,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var playerOneName: UITextField!
     @IBOutlet weak var playerTwoName: UITextField!
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var triviaImage: UIImageView!
     
     @IBAction func startButton(_ sender: Any) {
         createPlayer()
@@ -36,14 +37,14 @@ class IntroViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            self.navigationItem.title = "Movies"
+            self.navigationItem.title = "trivia for two"
             
             titleLabel.alpha = 0
             rulesLabel.alpha = 0
             playerOneName.alpha = 0
             playerTwoName.alpha = 0
             startGameButton.alpha = 0
-            
+            triviaImage.alpha = 0
             showWelcome()
             showManual()
        
@@ -55,6 +56,7 @@ class IntroViewController: UIViewController {
         UIView.animate(withDuration: 1.5, animations: {
             self.titleLabel.alpha = 1
             self.rulesLabel.alpha = 1
+            self.triviaImage.alpha = 1
         }, completion: { (true) in
             self.showManual()
         }

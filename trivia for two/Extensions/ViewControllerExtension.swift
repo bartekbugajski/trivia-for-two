@@ -135,7 +135,7 @@ extension ViewController {
                         if self.questionNumber >= 10 {
                             self.playerName.layer.backgroundColor = UIColor.clear.cgColor
                             self.playerName.layer.cornerRadius = 15
-                            self.playerTwoName.layer.backgroundColor = UIColor.pink.cgColor
+                            self.playerTwoName.layer.backgroundColor = UIColor.greenColor.cgColor
                             self.playerTwoName.layer.cornerRadius = 15
                                             }
                         if self.questionNumber >= 20 {
@@ -179,7 +179,7 @@ extension UIColor {
     static let orange = UIColor(red: 237/255, green: 150/255, blue: 54/255, alpha: 1)
     static let backgroundColor = UIColor(red: 255/255, green: 224/244, blue: 204/255, alpha: 2)
     static let tempFontColor = UIColor(red: 196/255, green: 184/255, blue: 166/255, alpha: 1)
-    static let greenColor = UIColor(red: 115/255, green: 237/255, blue: 110/255, alpha: 1)
+    static let greenColor = UIColor(red: 113/255, green: 242/255, blue: 86/255, alpha: 1)
     
 }
 
@@ -355,4 +355,33 @@ extension UILabel {
         }
     }
 
+}
+
+@IBDesignable
+extension UIImageView
+{
+    private struct AssociatedKey
+    {
+        static var rounded = "UIImageView.rounded"
+    }
+
+    @IBInspectable var rounded: Bool
+    {
+        get
+        {
+            if let rounded = objc_getAssociatedObject(self, &AssociatedKey.rounded) as? Bool
+            {
+                return rounded
+            }
+            else
+            {
+                return false
+            }
+        }
+        set
+        {
+            objc_setAssociatedObject(self, &AssociatedKey.rounded, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            layer.cornerRadius = CGFloat(newValue ? 0.8 : 0.0)*min(bounds.width, bounds.height)/2
+        }
+    }
 }

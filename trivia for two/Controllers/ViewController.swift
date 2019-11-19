@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             self.fetchPlayers()
             self.playerName.alpha = 1
             self.playerTwoName.alpha = 1
-            self.playerName.layer.backgroundColor = UIColor.borderPurple.cgColor
+            self.playerName.layer.backgroundColor = UIColor.greenColor.cgColor
             self.playerName.layer.cornerRadius = 15
             self.playerTwoName.layer.cornerRadius = 15
         }) { (true) in
