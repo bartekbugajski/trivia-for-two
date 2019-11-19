@@ -179,7 +179,7 @@ extension UIColor {
     static let orange = UIColor(red: 237/255, green: 150/255, blue: 54/255, alpha: 1)
     static let backgroundColor = UIColor(red: 255/255, green: 224/244, blue: 204/255, alpha: 2)
     static let tempFontColor = UIColor(red: 196/255, green: 184/255, blue: 166/255, alpha: 1)
-    static let greenColor = UIColor(red: 113/255, green: 242/255, blue: 86/255, alpha: 1)
+    static let greenColor = UIColor(red: 118/255, green: 214/255, blue: 114/255, alpha: 1)
     
 }
 
